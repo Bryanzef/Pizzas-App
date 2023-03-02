@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <style>
+
+    </style>
+    <header>
+        <img src="./assets/logo.png" alt="">
+    </header>
+    <main>
+        <div class="container">
+            <div class="colum">
+                <h1>Pepperone'S
+                    pizzas
+                </h1>
+
+                <a href="#" class="smooth-scroll"> <i class="fa-solid fa-pizza-slice"></i> Cardápio</a>
+
+                <a href="#" class="smooth-scroll"><i class="fas fa-shopping-cart"></i> Pedidos</a>
+                <a href="#" class="smooth-scroll"><i class="fas fa-tags"></i> Promoções</a>
+
+
+
+                <a href="#" class="smooth-scroll"> <i class="fa-solid fa-user"></i>Sobre Nós</a>
+                <a href="#" class="smooth-scroll"> <i class="fa-solid fa-phone"></i>Contato</a>
+
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/3880d83a86.js" crossorigin="anonymous"></script>
+    <script>
+        // Adicione a função para a rolagem suave
+        function smoothScroll(target, duration) {
+            var target = document.querySelector(target);
+            var targetPosition = target.getBoundingClientRect().top;
+            var startPosition = window.pageYOffset;
+            var distance = targetPosition - startPosition;
+            var startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                var timeElapsed = currentTime - startTime;
+                var run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Adicione um evento de clique para cada link com a classe "smooth-scroll"
+        var links = document.querySelectorAll('.smooth-scroll');
+        links.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                var href = this.getAttribute('href');
+                var target = document.querySelector(href);
+                var headerHeight = document.querySelector('header').offsetHeight;
+                var offsetTop = target.offsetTop - headerHeight;
+                smoothScroll(href, 1000);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
