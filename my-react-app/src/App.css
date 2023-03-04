@@ -265,7 +265,7 @@ item.active {
   .carrousel {
     cursor: grab;
     overflow: hidden;
-    max-width:150px;
+    max-width:200px;
   
   }
   .inner {
@@ -273,7 +273,7 @@ item.active {
   }
   .item {
     min-height: 100px;
-    min-width: 300px;
+    min-width: 200px;
   }
   .item img {
     width: 50%;
