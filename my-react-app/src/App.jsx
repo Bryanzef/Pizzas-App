@@ -142,7 +142,7 @@ function App() {
       {showPromocoesModal && (
         <div className="modal">
           <div className="modal-main">
-            <h2>Promoões</h2>
+            <h2>Promoções</h2>
 
             <button
               className="close-button"
