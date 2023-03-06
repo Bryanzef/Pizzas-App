@@ -273,7 +273,7 @@ item.active {
   }
   .item {
     min-height: 100px;
-    min-width: 200px;
+    min-width: 300px;
   }
   .item img {
     width: 50%;
